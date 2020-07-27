@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- The following line applies the Bootstrap CSS styling to the web page -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Flights</title>
+</head>
+<body>
+<div class="container">
+    <h1>Flight details</h1>
+    <br>
+    <!-- The following is Jinja2 template code that iterates through the flight objects and renders the HTML to display the details for each flight -->
+    {% for flight in flights %}
+        <h4>Flight number {{ flight.flight_num }} from {{ flight.origin }} to {{ flight.destination }}</h4>
+        <p>Passengers:</p>
+        <ul>
+            {% for passenger in flight.passengers %}
+                <li>{{ passenger.firstname }} {{ passenger.lastname }}</li>
+            {% endfor %}
+        </ul>
+        <br>
+    {% endfor %}
+</div>
+</body>
+</html>
